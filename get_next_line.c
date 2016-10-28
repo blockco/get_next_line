@@ -31,7 +31,6 @@ int read_tmp(const int fd, char **buf)
 
 int get_next_line(const int fd, char **line)
 {
-	//**line is where the
 	static char *buf;
 	char 		*str;
 	int			bytes_read;
@@ -48,23 +47,19 @@ int get_next_line(const int fd, char **line)
 		str[0] = '\0';
 		*line = ft_strdup(buf);
 		buf = str + 1;
+		return 1;
 	}
-	else
-	{
-		*line = ft_strdup(buf);
-	}
-	if (bytes_read == 0)
-		return (0);
-	else
-		return (1);
+	*line = ft_strdup(buf);
+	buf = NULL;
+	return (ft_strlen(*line) > 0 ? 1 : 0);
 }
 
-// int		main(int argc, char **argv)
-// {
-// 	if(argc > 2)
-// 		return 0;
-// 	int fd = open(argv[1], O_RDWR);
-// 	char *line = ft_strnew(0);
-// 	while(get_next_line(fd, &line))
-// 		printf("%s\n", line);
-// }
+int		main(int argc, char **argv)
+{
+	if(argc > 2)
+		return 0;
+	int fd = open(argv[1], O_RDWR);
+	char *line = ft_strnew(0);
+	while(get_next_line(fd, &line))
+		printf("%s\n", line);
+}
