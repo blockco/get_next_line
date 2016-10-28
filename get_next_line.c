@@ -35,9 +35,7 @@ int get_next_line(const int fd, char **line)
 	char 		*str;
 	int			bytes_read;
 
-	if(fd < 0)
-		return (-1);
-	if (line == NULL || *line == NULL)
+	if(fd < 0 || line == NULL || (-1 == read(fd, buf, 0)))
 		return (-1);
 	if (!buf)
 		buf = ft_strnew(BUFF_SIZE);
@@ -53,13 +51,13 @@ int get_next_line(const int fd, char **line)
 	buf = NULL;
 	return (ft_strlen(*line) > 0 ? 1 : 0);
 }
-
-int		main(int argc, char **argv)
-{
-	if(argc > 2)
-		return 0;
-	int fd = open(argv[1], O_RDWR);
-	char *line = ft_strnew(0);
-	while(get_next_line(fd, &line))
-		printf("%s\n", line);
-}
+//
+// int		main(int argc, char **argv)
+// {
+// 	if(argc > 2)
+// 		return 0;
+// 	int fd = open(argv[1], O_RDWR);
+// 	char *line = ft_strnew(0);
+// 	while(get_next_line(fd, &line))
+// 		printf("%s\n", line);
+// }
