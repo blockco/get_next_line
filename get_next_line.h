@@ -6,7 +6,7 @@
 /*   By: rpassafa <rpassafa@student.42.us>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/31 15:10:36 by rpassafa          #+#    #+#             */
-/*   Updated: 2016/10/31 23:16:35 by rpassafa         ###   ########.us       */
+/*   Updated: 2016/10/31 15:20:35 by rpassafa         ###   ########.us       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <sys/types.h>
 
 # define ENDL '\n'
-# define BUFF_SIZE 1
+# define BUFF_SIZE 30
 
 int get_next_line(const int fd, char **line);
 int	read_tmp(const int fd, char **buf);
